@@ -19,7 +19,7 @@ public class PrimerParcialPOO {
         // TODO code application logic here
         //HOLIIIIII
         //Hola Soy  Marielos
-        
+        //asofaosifa
     }
     
 }
