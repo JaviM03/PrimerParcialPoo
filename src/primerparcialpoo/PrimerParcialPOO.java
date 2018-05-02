@@ -17,7 +17,7 @@ public class PrimerParcialPOO {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        //HOLIIIIII
+        //HOIIII
         //Hola Soy  Marielos
         //asofaosifa
     }
