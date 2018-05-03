@@ -18,12 +18,12 @@ public class Usuario {
     private String DUI;
     private String numTargeta;
 
- /*Creando el Contructor que tiene el mismo nombre de la clase*/
+    /*Creando el Contructor que tiene el mismo nombre de la clase*/
  /*Contructor de Usuario*/
-    
-    public Usuario(){
-        
+    public Usuario() {
+
     }
+
     public Usuario(String nombre, String apellido, String telefono, String DUI, String numTargeta) {
         this.nombre = nombre;
         this.apellido = apellido;
