@@ -7,78 +7,97 @@ package primerparcialpoo;
 
 import java.util.ArrayList;
 
+public class DistriHotel {
 
-public class DistriHotel{
+    private boolean disponible;
 
-    public boolean disponible;
-    
     //ArrayList
-    public ArrayList <String> piso = new ArrayList <String>();
-    public ArrayList <Integer> habitacion = new ArrayList <Integer>();
-    
-    
+    public ArrayList<String> piso = new ArrayList<String>();
+    public ArrayList<Integer> habitacion = new ArrayList<Integer>();
+
     public DistriHotel() {
         //generando los primero 6 pisos
-        for (int i =65;i<=70;i++){
-            String valor = Character.toString((char)i);
+        for (int i = 65; i <= 70; i++) {
+            String valor = Character.toString((char) i);
             piso.add(valor);
         }
         //generando las 10 habitaciones
-        for (int j=1;j<=11;j++){
+        for (int j = 1; j <= 11; j++) {
             habitacion.add(j);
         }
     }
+    //stes gets
+
+    public boolean isDisponible() {
+        return disponible;
+    }
+
+    public void setDisponible(boolean disponible) {
+        this.disponible = disponible;
+    }
+
+    public ArrayList<String> getPiso() {
+        return piso;
+    }
+
+    public void setPiso(ArrayList<String> piso) {
+        this.piso = piso;
+    }
+
+    public ArrayList<Integer> getHabitacion() {
+        return habitacion;
+    }
+
+    public void setHabitacion(ArrayList<Integer> habitacion) {
+        this.habitacion = habitacion;
+    }
     
     //METODOS
-    public void Agregar(String floor){
-        if (piso.contains(floor)){
+    public void Agregar(String floor) {
+        if (piso.contains(floor)) {
             System.out.println("Piso existente");
+        } else {
+            piso.add(floor);
         }
-        else{
-            piso.add(floor);  
-        }     
     }
-    public void Agregar(String floor, int room){
-        if (piso.contains(floor)){
-            
-            if (habitacion.contains(room)){
+
+    public void Agregar(String floor, int room) {
+        if (piso.contains(floor)) {
+
+            if (habitacion.contains(room)) {
                 System.out.println("Habitacion existente");
+            } else {
+                piso.add(floor);
             }
-            else{
-                piso.add(floor);  
-            } 
-        }
-        else{
-           System.out.println("Piso no existe"); 
-        }
-    }
-    
-    public void Eliminar(String floor){
-        if (piso.contains(floor)){
-            piso.remove(floor);
-        }
-        else{
+        } else {
             System.out.println("Piso no existe");
         }
-        
     }
-    public void Eliminar(String floor, int room){
-        if (piso.contains(floor)){
-            if (habitacion.contains(room)){
+
+    public void Eliminar(String floor) {
+        if (piso.contains(floor)) {
+            piso.remove(floor);
+        } else {
+            System.out.println("Piso no existe");
+        }
+
+    }
+
+    public void Eliminar(String floor, int room) {
+        if (piso.contains(floor)) {
+            if (habitacion.contains(room)) {
                 habitacion.remove(room);
-            }
-            else{
+            } else {
                 System.out.println("Habitacion no existe");
             }
-        }
-        else{
+        } else {
             System.out.println("piso no existe");
         }
-         
+
     }
-    public void Modificar(){
-        
+
+    public void Modificar() {
+
     }
-    
-    
+
 }
