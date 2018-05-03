@@ -9,7 +9,9 @@ package primerparcialpoo;
 public class PrimerParcialPOO {
 
     public static void main(String[] args) {
-        //prueba M3 :)
+        Paquete paquete = new Paquete();
+        DistriHotel distriHotel = new DistriHotel();
+        Cliente cliente = new Cliente();
         
     }
     
