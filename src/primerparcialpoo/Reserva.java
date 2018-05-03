@@ -14,11 +14,11 @@ import java.util.Date;
  * @author javier
  */
 public class Reserva {
-    DistriiHotel ultimo2Piso;
+    DistriHotel ultimo2Piso;
     int diaReserva;
     boolean ospeMax7D; 
     boolean reservaMax2H;
-    DistriiHotel numHabitacion;
+    DistriHotel numHabitacion;
     ArrayList<Reserva> listaReservaHecha= new ArrayList<>();
    
     
