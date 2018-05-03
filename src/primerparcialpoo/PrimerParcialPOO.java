@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package primerparcialpoo;
+import java.util.Scanner;
 
 
 public class PrimerParcialPOO {
