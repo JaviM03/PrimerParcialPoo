@@ -54,4 +54,12 @@ public class Administracion {
         
     }
     
+    public void ver(){}
+    
+    public void cancelar(){}
+    
+    public void modificar(){}
+    
+    public void habilitar(){}
+    
 }
