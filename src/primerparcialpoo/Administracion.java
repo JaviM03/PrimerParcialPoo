@@ -17,9 +17,8 @@ public class Administracion {
     private double costoDiaHabitacionS;
     private double costoDiaHabitacionD;
     private DistriHotel distriHotel = new DistriHotel();
-    //private Reserva reserva = new Reserva();
-    private Cliente cliente = new Cliente();
-    private ArrayList<Cliente> listaCliente = new ArrayList<>();
+    
+    public ArrayList<Cliente> listaCliente = new ArrayList<>();
 
     public Administracion() {
     }
@@ -44,6 +43,7 @@ public class Administracion {
     
     //********Agregando nuevas reservas***************
     public void agregar(){
+        Cliente cliente = new Cliente();
         Scanner entrada = new Scanner(System.in);
         System.out.println("Ingrese nombre:");
         cliente.setNombre(entrada.nextLine());
@@ -62,9 +62,9 @@ public class Administracion {
     //********Ver las reservas excistentes**************
     public void ver(){
         Cliente clienteAux;
-        Iterator iter = listaCliente.iterator();
+        Iterator<Cliente> iter = listaCliente.iterator();
         while(iter.hasNext()){
-            clienteAux = (Cliente)iter.next();
+            clienteAux = iter.next();
             System.out.println(clienteAux.getNombre());
         }
     }
