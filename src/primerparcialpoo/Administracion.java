@@ -5,6 +5,8 @@
  */
 package primerparcialpoo;
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  *
@@ -17,6 +19,7 @@ public class Administracion {
     private DistriHotel distriHotel = new DistriHotel();
     //private Reserva reserva = new Reserva();
     private Cliente cliente = new Cliente();
+    private ArrayList<Cliente> listaCliente = new ArrayList<>();
 
     public Administracion() {
     }
@@ -39,27 +42,40 @@ public class Administracion {
 
     //-----------------------METODOS------------------------------------------
     
+    //********Agregando nuevas reservas***************
     public void agregar(){
         Scanner entrada = new Scanner(System.in);
-        System.out.println("Ingrese nombre:\n");
+        System.out.println("Ingrese nombre:");
         cliente.setNombre(entrada.nextLine());
-        System.out.println("Ingrese apellido:\n");
+        System.out.println("Ingrese apellido:");
         cliente.setApellido(entrada.nextLine());
-        System.out.println("Ingrese telefono:\n");
+        System.out.println("Ingrese telefono:");
         cliente.setTel(entrada.nextLine());
-        System.out.println("Ingrese dui:\n");
+        System.out.println("Ingrese dui:");
         cliente.setDUI(entrada.nextLine());
-        System.out.println("Ingrese numero de targeta:\n");
+        System.out.println("Ingrese numero de targeta:");
         cliente.setNumeTargeta(entrada.nextLine());
         
+        listaCliente.add(cliente);
+        
+    }
+    //********Ver las reservas excistentes**************
+    public void ver(){
+        Cliente clienteAux;
+        Iterator iter = listaCliente.iterator();
+        while(iter.hasNext()){
+            clienteAux = (Cliente)iter.next();
+            System.out.println(clienteAux.getNombre());
+        }
     }
     
-    public void ver(){}
-    
+    //*********Cancelando la reserva********************
     public void cancelar(){}
     
+    //*********Modificando la reserva*******************
     public void modificar(){}
     
+    //*********Habilitando las habitaciones o pisos*****
     public void habilitar(){}
     
 }
