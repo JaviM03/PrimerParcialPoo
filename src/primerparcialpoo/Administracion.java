@@ -17,8 +17,8 @@ public class Administracion {
     private double costoDiaHabitacionS;
     private double costoDiaHabitacionD;
     private DistriHotel distriHotel = new DistriHotel();
-    
-    public ArrayList<Cliente> listaCliente = new ArrayList<>();
+    private ArrayList<Reserva> listaReserva = new ArrayList<>();
+    private ArrayList<Cliente> listaCliente = new ArrayList<>();
 
     public Administracion() {
     }
@@ -44,6 +44,8 @@ public class Administracion {
     //********Agregando nuevas reservas***************
     public void agregar(){
         Cliente cliente = new Cliente();
+        Reserva reserva = new Reserva();
+        //****Informacio del Cliente************
         Scanner entrada = new Scanner(System.in);
         System.out.println("Ingrese nombre:");
         cliente.setNombre(entrada.nextLine());
@@ -55,8 +57,9 @@ public class Administracion {
         cliente.setDUI(entrada.nextLine());
         System.out.println("Ingrese numero de targeta:");
         cliente.setNumeTargeta(entrada.nextLine());
-        
         listaCliente.add(cliente);
+        //****Informacio de la Reservacion******
+        
         
     }
     //********Ver las reservas excistentes**************
