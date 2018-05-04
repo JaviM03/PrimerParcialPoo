@@ -14,8 +14,13 @@ public class PrimerParcialPOO {
         //DistriHotel distriHotel = new DistriHotel();
         //Cliente cliente = new Cliente();
         DistriHotel prueba = new DistriHotel();
-  
         
+        Servicio Basico = new Servicio("Basico", "piscina, internet ilimitado", 10, false);
+        Servicio Premiun = new Servicio("Premiun", "incluye acceso a buffet de\n" +
+        "desayuno, acceso ilimitado a la piscina, servicio a la habitaciÃ³n, acceso ilimitado al minibar,\n" +
+        "acceso a internet ilimitado", 150, true);
+
+
     }
     
 }
