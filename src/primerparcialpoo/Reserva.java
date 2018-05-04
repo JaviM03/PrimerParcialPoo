@@ -37,6 +37,7 @@ public class Reserva {
     //Revisar Disponibilidad de habitaciones
     public ArrayList<ArrayList<Boolean>> reservaMax2h()
     { 
+        
         ArrayList<ArrayList<Boolean>> edificio= hotel.DistriHotel(10, 6);
         System.out.println("Digite el # de habitaciones deseadas: (Maximo 2)");
          while(reservaMax2H<2){
@@ -85,12 +86,16 @@ public class Reserva {
         for(int i = 0; i < 6; i++){
             for(int j = 0; j < 10; j++){
                 if(aux > 0 && edificio.get(i).get(j) == false){
-                    //ArrayList.get(i).ge= true;
+                   edificio.get(i).set(j,true);
                     aux--;
                 }
+                
             }
             
+            hotel.mostrarHotel();
+            
         }
+        
         
         
         return edificio;
