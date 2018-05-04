@@ -17,6 +17,7 @@ public class Cliente {
     private String telefono;
     private String DUI;
     private String numTargeta;
+    private Servicio servicioActivo;
 
     /*Creando el Contructor que tiene el mismo nombre de la clase*/
  /*Contructor de Usuario*/
