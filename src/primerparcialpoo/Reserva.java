@@ -1,9 +1,8 @@
 
 package primerparcialpoo;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Calendar;
 import java.util.Scanner;
-import java.time.LocalDateTime;
 import java.util.InputMismatchException;
 
 
@@ -14,10 +13,18 @@ import java.util.InputMismatchException;
  */
 public class Reserva {
     int reservaMax2H=0, habitacion,dia,ospeMax7D;
-    DistriHotel ultimo2Piso,numHabitacion,Distri_hotel;
-    String diaReserva;
+    DistriHotel ultimo2Piso,numHabitacion,Distri_hotel,desocuparHabitacion;
     DistriHotel hotel = new DistriHotel();
-    String idReserva;
+    String idReserva,diaReserva;
+
+    public String getIdReserva() {
+        return idReserva;
+    }
+
+    public void setIdReserva(String idReserva) {
+        this.idReserva = idReserva;
+    }
+   
     
     
    
@@ -73,11 +80,12 @@ public class Reserva {
                 menu.next();
             }
         }
+        
         int aux = habitacion;
         for(int i = 0; i < 6; i++){
             for(int j = 0; j < 10; j++){
-                if(aux > 0 && edificio[i][j] == false){
-                    edificio[i][j] = true;
+                if(aux > 0 && edificio.get(i).get(j) == false){
+                    ArrayList.get(i).ge= true;
                     aux--;
                 }
             }
@@ -122,14 +130,17 @@ public class Reserva {
             
                
                 }
-       
+         
+       Calendar checkIn = Calendar.getInstance();
+            System.out.println("El cliente ingreso en la fecha" + checkIn.getTime() );
+       Calendar checkOut =Calendar.getInstance();
+            checkOut.add(Calendar.DAY_OF_MONTH, dia);
+            System.out.println("El cliente se fue en la fecha" + checkOut.getTime());
         }
         
         }
    
-        /*//reservar habitación por determinados días
-        Date diaReserva= new Date(115, 6, 2, 15, 30);
-        System.out.println("Ahora hemos creado un objeto date con la fecha indicada, "+diaReserva);*/
+     
 
     
 
