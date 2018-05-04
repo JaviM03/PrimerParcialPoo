@@ -8,11 +8,13 @@ import java.util.Scanner;
 
 
 public class PrimerParcialPOO {
-
+    
     public static void main(String[] args) {
-        Paquete paquete = new Paquete();
-        DistriHotel distriHotel = new DistriHotel();
-        Cliente cliente = new Cliente();
+        //Paquete paquete = new Paquete();
+        //DistriHotel distriHotel = new DistriHotel();
+        //Cliente cliente = new Cliente();
+        DistriHotel prueba = new DistriHotel();
+  
         
     }
     
