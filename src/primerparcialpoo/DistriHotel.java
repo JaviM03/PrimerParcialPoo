@@ -8,96 +8,84 @@ package primerparcialpoo;
 import java.util.ArrayList;
 
 public class DistriHotel {
+    private ArrayList<ArrayList<Boolean>> edificio = new ArrayList<>();
+    private int cantPisos = 0; //i
+    private int cantHabit = 0; //j
+    
+    public DistriHotel(int cantPisos, int cantHabit) {
+        if(cantPisos <= 26){
+            this.cantPisos = cantPisos;
+            this.cantHabit = cantHabit;
+            System.out.println("Generando Hotel");
+            ArrayList<Boolean> filaAux = new ArrayList<>();
 
-    private boolean disponible;
-
-    //ArrayList
-    public ArrayList<String> piso = new ArrayList<String>();
-    public ArrayList<Integer> habitacion = new ArrayList<Integer>();
-
-    public DistriHotel() {
-        //generando los primero 6 pisos
-        for (int i = 65; i <= 70; i++) {
-            String valor = Character.toString((char) i);
-            piso.add(valor);
+            for (int i = 0; i < this.cantPisos; i++) {
+                for (int j = 0; j < this.cantHabit; j++) {
+                    filaAux.add(new Boolean(false));
+                }
+                edificio.add(filaAux);
+                filaAux = new ArrayList<>();
+            }
         }
-        //generando las 10 habitaciones
-        for (int j = 1; j <= 11; j++) {
-            habitacion.add(j);
+        else{
+            System.out.println("Cant pisos se excede al piso 'Z', hotel no creado");
+            
+        } 
+    }
+    public void agregarPiso(){
+        //creeando piso antes de agregarlo
+        if(cantPisos == 26){
+            System.out.println("Se llego hasta el piso 'Z', no se agrego piso");
+        }else{
+            cantPisos++;
+            ArrayList<Boolean> filaAux = new ArrayList<>();
+            for (int i = 0; i < this.cantHabit; i++) {
+                filaAux.add(new Boolean(false));
+            }
+            //agregando piso al edificio
+            edificio.add(filaAux);
+            
         }
-    }
-    //stes gets
-
-    public boolean isDisponible() {
-        return disponible;
-    }
-
-    public void setDisponible(boolean disponible) {
-        this.disponible = disponible;
-    }
-
-    public ArrayList<String> getPiso() {
-        return piso;
-    }
-
-    public void setPiso(ArrayList<String> piso) {
-        this.piso = piso;
-    }
-
-    public ArrayList<Integer> getHabitacion() {
-        return habitacion;
-    }
-
-    public void setHabitacion(ArrayList<Integer> habitacion) {
-        this.habitacion = habitacion;
     }
     
-    //METODOS
-    public void Agregar(String floor) {
-        if (piso.contains(floor)) {
-            System.out.println("Piso existente");
-        } else {
-            piso.add(floor);
+    public void agregarHabitacion(){
+        cantHabit++;
+        for (int i = 0; i < cantHabit; i++) {
+            edificio.get(i).add(false);
         }
     }
-
-    public void Agregar(String floor, int room) {
-        if (piso.contains(floor)) {
-
-            if (habitacion.contains(room)) {
-                System.out.println("Habitacion existente");
-            } else {
-                piso.add(floor);
+    
+    public void mostrarHotel(){
+        System.out.print("\t");
+        for (int i = 1; i <= cantHabit; i++) {
+            System.out.print(i+"\t");
+        }
+        System.out.println();
+        System.out.print("\t");
+        for (int i = 1; i <= cantHabit; i++) {
+            System.out.print("________");
+        }
+        System.out.println();
+        for (int i = cantPisos-1; i >= 0; i--) {
+            System.out.print(((char) (i+65))+"     |\t");
+            for (int j = 0; j < cantHabit; j++) {
+                System.out.print(edificio.get(i).get(j)+"\t");
             }
-        } else {
-            System.out.println("Piso no existe");
+            System.out.println();
         }
     }
-
-    public void Eliminar(String floor) {
-        if (piso.contains(floor)) {
-            piso.remove(floor);
-        } else {
-            System.out.println("Piso no existe");
-        }
-
+    public void ocuparHabitacion(int piso, int habitacion){
+        if (edificio.get(piso).get(habitacion) == true)
+            System.out.println("Habitacion ocupada");
+        else
+            edificio.get(piso).set(habitacion,true);
     }
-
-    public void Eliminar(String floor, int room) {
-        if (piso.contains(floor)) {
-            if (habitacion.contains(room)) {
-                habitacion.remove(room);
-            } else {
-                System.out.println("Habitacion no existe");
-            }
-        } else {
-            System.out.println("piso no existe");
-        }
-
-    }
-
-    public void Modificar() {
-
+    public void desocuparHabitacion(int piso, int habitacion){
+        if (edificio.get(piso).get(habitacion) == false)
+            System.out.println("Habitacion desocupada");
+        else
+            edificio.get(piso).set(habitacion,false);
     }
 
 }
+    
