@@ -24,19 +24,11 @@ public class Reserva {
     public void setIdReserva(String idReserva) {
         this.idReserva = idReserva;
     }
-   
-    
-    
-   
-    
-   
-   
-    
+
     Scanner input = new Scanner (System.in);
     
     //Revisar Disponibilidad de habitaciones
-    public ArrayList<ArrayList<Boolean>> reservaMax2h()
-    { 
+    public ArrayList<ArrayList<Boolean>> reservaMax2h(){ 
         
         ArrayList<ArrayList<Boolean>> edificio= hotel.DistriHotel(10, 6);
         System.out.println("Digite el # de habitaciones deseadas: (Maximo 2)");
