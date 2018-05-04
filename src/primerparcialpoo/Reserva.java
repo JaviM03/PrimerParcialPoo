@@ -85,7 +85,7 @@ public class Reserva {
         for(int i = 0; i < 6; i++){
             for(int j = 0; j < 10; j++){
                 if(aux > 0 && edificio.get(i).get(j) == false){
-                    ArrayList.get(i).ge= true;
+                    //ArrayList.get(i).ge= true;
                     aux--;
                 }
             }
