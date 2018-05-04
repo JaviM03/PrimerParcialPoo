@@ -15,7 +15,7 @@ public class PrimerParcialPOO {
         Cliente cliente = new Cliente();
         DistriHotel prueba = new DistriHotel();
         Reserva res = new Reserva();
-        res.reservaMax2h();
+        //res.reservaMax2h();
         
         //Servicio Basico = new Servicio("Basico",10,false,"piscina");
         //Servicio Premiun = new Servicio("Premiun",150,true,"internet");
@@ -28,6 +28,6 @@ public class PrimerParcialPOO {
         
         A.ver();
 
-
-    }
+     }
+}
     
