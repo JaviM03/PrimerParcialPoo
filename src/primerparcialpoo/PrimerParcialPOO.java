@@ -10,10 +10,10 @@ import java.util.Scanner;
 public class PrimerParcialPOO {
     
     public static void main(String[] args) {
+        /*
         Paquete paquete = new Paquete();
         //DistriHotel distriHotel = new DistriHotel();
         Cliente cliente = new Cliente();
-        DistriHotel prueba = new DistriHotel();
         Reserva res = new Reserva();
         //res.reservaMax2h();
         
@@ -27,7 +27,10 @@ public class PrimerParcialPOO {
         }
         
         A.ver();
-
+        */
+        DistriHotel prueba = new DistriHotel();
+        prueba.desocuparHabitacion(1, 1);
+        prueba.mostrarHotel();
      }
 }
     
