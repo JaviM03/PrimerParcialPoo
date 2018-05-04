@@ -12,6 +12,8 @@ public class DistriHotel {
     private int cantPisos = 0; //i
     private int cantHabit = 0; //j
     
+    public DistriHotel(){}
+    
     public DistriHotel(int cantPisos, int cantHabit) {
         if(cantPisos <= 26){
             this.cantPisos = cantPisos;
