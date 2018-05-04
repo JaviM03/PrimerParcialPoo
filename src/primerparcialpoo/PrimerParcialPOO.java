@@ -13,10 +13,18 @@ public class PrimerParcialPOO {
         //Paquete paquete = new Paquete();
         //DistriHotel distriHotel = new DistriHotel();
         //Cliente cliente = new Cliente();
-        DistriHotel prueba = new DistriHotel();
+        //DistriHotel prueba = new DistriHotel();
         
-        Servicio Basico = new Servicio("Basico",10,false,"piscina");
-        Servicio Premiun = new Servicio("Premiun",150,true,"internet");
+        //Servicio Basico = new Servicio("Basico",10,false,"piscina");
+        //Servicio Premiun = new Servicio("Premiun",150,true,"internet");
+        
+        Administracion A = new Administracion();
+        
+        for (int i = 0; i < 3;i++){
+            A.agregar();
+        }
+        
+        A.ver();
 
 
     }
