@@ -8,13 +8,13 @@ package primerparcialpoo;
 import java.util.ArrayList;
 
 public class DistriHotel {
-    private ArrayList<ArrayList<Boolean>> edificio = new ArrayList<>();
+    public ArrayList<ArrayList<Boolean>> edificio = new ArrayList<>();
     private int cantPisos = 0; //i
     private int cantHabit = 0; //j
     
     public DistriHotel(){}
     
-    public DistriHotel(int cantPisos, int cantHabit) {
+    public ArrayList<ArrayList<Boolean>>  DistriHotel(int cantPisos, int cantHabit) {
         if(cantPisos <= 26){
             this.cantPisos = cantPisos;
             this.cantHabit = cantHabit;
@@ -28,11 +28,13 @@ public class DistriHotel {
                 edificio.add(filaAux);
                 filaAux = new ArrayList<>();
             }
+            return edificio;
         }
         else{
             System.out.println("Cant pisos se excede al piso 'Z', hotel no creado");
             
         } 
+        return null;
     }
     public void agregarPiso(){
         //creeando piso antes de agregarlo
