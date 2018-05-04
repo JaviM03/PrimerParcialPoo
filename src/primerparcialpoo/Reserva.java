@@ -73,13 +73,17 @@ public class Reserva {
                 menu.next();
             }
         }
-        
+        int aux = habitacion;
         for(int i = 0; i < 6; i++){
             for(int j = 0; j < 10; j++){
-                
+                if(aux > 0 && edificio[i][j] == false){
+                    edificio[i][j] = true;
+                    aux--;
+                }
             }
             
         }
+        
         
         return edificio;
     }       
@@ -118,7 +122,7 @@ public class Reserva {
             
                
                 }
-        
+       
         }
         
         }
