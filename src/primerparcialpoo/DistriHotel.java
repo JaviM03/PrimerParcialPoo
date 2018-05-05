@@ -3,42 +3,45 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package primerparcialpoo;
+package poo;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 
+/**
+ *
+ * @author rafael
+ */
+
 class Habitacion{
-    private boolean disponible = true;
-    private Calendar in;
-    private Calendar out;
-    
-    public Habitacion() {}
+    boolean ocupado = false;
+    Calendar fechaInicio;
+    Calendar fechaFinal;
+    public Habitacion(){}
 
-    public boolean isDisponible() {
-        return disponible;
+    public boolean isOcupado() {
+        return ocupado;
     }
 
-    public void setDisponible(boolean disponible) {
-        this.disponible = disponible;
+    public void setOcupado(boolean ocupado) {
+        this.ocupado = ocupado;
     }
 
-    public Calendar getIn() {
-        return in;
+    public Calendar getFechaInicio() {
+        return fechaInicio;
     }
 
-    public void setIn(Calendar in) {
-        this.in = in;
+    public void setFechaInicio(Calendar fechaInicio) {
+        this.fechaInicio = fechaInicio;
     }
 
-    public Calendar getOut() {
-        return out;
+    public Calendar getFechaFinal() {
+        return fechaFinal;
     }
 
-    public void setOut(Calendar out) {
-        this.out = out;
+    public void setFechaFinal(Calendar fechaFinal) {
+        this.fechaFinal = fechaFinal;
     }
-    
     
 }
 
@@ -47,9 +50,7 @@ public class DistriHotel {
     private int cantPisos = 0; //i
     private int cantHabit = 0; //j
     
-    public DistriHotel(){}
-    
-    public ArrayList<ArrayList<Habitacion>>  DistriHotel(int cantPisos, int cantHabit) {
+    public DistriHotel(int cantPisos, int cantHabit){
         if(cantPisos <= 26){
             this.cantPisos = cantPisos;
             this.cantHabit = cantHabit;
@@ -63,11 +64,9 @@ public class DistriHotel {
                 edificio.add(filaAux);
                 filaAux = new ArrayList<>();
             }
+        }else{
+            System.out.println("Cant pisos se excede al piso 'Z', hotel no creado");
         }
-        else{
-            System.out.println("Cant pisos se excede al piso 'Z', hotel no creado");   
-        } 
-        return null;
     }
     public void agregarPiso(){
         //creeando piso antes de agregarlo
@@ -87,13 +86,12 @@ public class DistriHotel {
     
     public void agregarHabitacion(){
         cantHabit++;
-        for (int i = 0; i < cantHabit; i++) {
+        for (int i = 0; i < cantPisos; i++) {
             edificio.get(i).add(new Habitacion());
         }
     }
     
     public void mostrarHotel(){
-        Habitacion habitacion;
         System.out.print("\t");
         for (int i = 1; i <= cantHabit; i++) {
             System.out.print(i+"\t");
@@ -107,22 +105,44 @@ public class DistriHotel {
         for (int i = cantPisos-1; i >= 0; i--) {
             System.out.print(((char) (i+65))+"     |\t");
             for (int j = 0; j < cantHabit; j++) {
-                System.out.print(edificio.get(i).get(j)+"\t");
+                System.out.print(edificio.get(i).get(j).isOcupado()+"\t");
             }
             System.out.println();
         }
+        mostrarOcupadas();
     }
     public void ocuparHabitacion(int piso, int habitacion){
-        if (edificio.get(piso).get(habitacion).isDisponible() == false)
+        if (edificio.get(piso).get(habitacion).isOcupado() == true)
             System.out.println("Habitacion ocupada");
         else
-            edificio.get(piso).get(habitacion).setDisponible(true);
+            edificio.get(piso).get(habitacion).setOcupado(true);
     }
     public void desocuparHabitacion(int piso, int habitacion){
-        if (edificio.get(piso).get(habitacion).isDisponible() == true)
+        if (edificio.get(piso).get(habitacion).isOcupado() == false)
             System.out.println("Habitacion desocupada");
         else
-            edificio.get(piso).get(habitacion).setDisponible(false);
+            edificio.get(piso).get(habitacion).setOcupado(false);
+    }
+    public void mostrarOcupadas(){
+        System.out.println("Habitaciones Ocupadas:");
+        System.out.println("\tSencillas:");
+        for (int i = 0; i < cantPisos; i++) {
+            for (int j = 0; j < cantHabit; j++) {
+                if (edificio.get(i).get(j).isOcupado() == true) {
+                    System.out.println("\t\t|"+((char) (i+65))+""+(j+1));
+                }
+                j++;
+            }
+        }
+        System.out.println("\tDobles:");
+        for (int i = 0; i < cantPisos; i++) {
+            for (int j = 1; j < cantHabit; j++) {
+                if (edificio.get(i).get(j).isOcupado() == true) {
+                    System.out.println("\t\t|"+((char) (i+65))+""+(j+1));
+                }
+                j++;
+            }
+        }
     }
 }
-    
+
