@@ -69,7 +69,7 @@ public class DistriHotel {
         }
     }
     public void agregarPiso(){
-        //creeando piso antes de agregarlo
+        //creeando el piso antes de agregarlo
         if(cantPisos == 26){
             System.out.println("Se llego hasta el piso 'Z', no se agrego piso");
         }else{
