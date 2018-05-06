@@ -3,15 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package poo;
+package primerparcialpoo;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-
-/**
- *
- * @author rafael
- */
 
 class Habitacion{
     boolean ocupado = false;
@@ -145,4 +140,3 @@ public class DistriHotel {
         }
     }
 }
-
