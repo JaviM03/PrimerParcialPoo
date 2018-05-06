@@ -4,33 +4,18 @@
  * and open the template in the editor.
  */
 package primerparcialpoo;
+
 import java.util.Scanner;
 
-
 public class PrimerParcialPOO {
-    
+
     public static void main(String[] args) {
-        /*
-        Paquete paquete = new Paquete();
-        //DistriHotel distriHotel = new DistriHotel();
-        Cliente cliente = new Cliente();
-        Reserva res = new Reserva();
-        //res.reservaMax2h();
-        
-        //Servicio Basico = new Servicio("Basico",10,false,"piscina");
-        //Servicio Premiun = new Servicio("Premiun",150,true,"internet");
-        
-        Administracion A = new Administracion();
-        
-        for (int i = 0; i < 3;i++){
-            A.agregar();
-        }
-        
-        A.ver();
-        */
+        Servicio Basico = new Servicio("Basico", "piscina, internet ilimitado", 10, false);
+        Servicio Premiun = new Servicio("Premiun", "incluye acceso a buffet de\n"
+                + "desayuno, acceso ilimitado a la piscina, servicio a la habitación, acceso ilimitado al minibar,\n"
+                + "acceso a internet ilimitado", 150, true);
         DistriHotel prueba = new DistriHotel();
         prueba.desocuparHabitacion(1, 1);
         prueba.mostrarHotel();
-     }
+    }
 }
-    
