@@ -6,137 +6,87 @@
 package primerparcialpoo;
 
 import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.Scanner;
+;
 
-class Habitacion{
-    boolean ocupado = false;
-    Calendar fechaInicio;
-    Calendar fechaFinal;
-    public Habitacion(){}
-
-    public boolean isOcupado() {
-        return ocupado;
-    }
-
-    public void setOcupado(boolean ocupado) {
-        this.ocupado = ocupado;
-    }
-
-    public Calendar getFechaInicio() {
-        return fechaInicio;
-    }
-
-    public void setFechaInicio(Calendar fechaInicio) {
-        this.fechaInicio = fechaInicio;
-    }
-
-    public Calendar getFechaFinal() {
-        return fechaFinal;
-    }
-
-    public void setFechaFinal(Calendar fechaFinal) {
-        this.fechaFinal = fechaFinal;
-    }
-    
-}
 
 public class DistriHotel {
+    
+    /*Se llama a la matriz Habitacion desde la clase Habitacion*/
     private ArrayList<ArrayList<Habitacion>> edificio = new ArrayList<>();
     private int cantPisos = 0; //i
     private int cantHabit = 0; //j
-    
-    public DistriHotel(int cantPisos, int cantHabit){
-        if(cantPisos <= 26){
-            this.cantPisos = cantPisos;
-            this.cantHabit = cantHabit;
-            System.out.println("Generando Hotel");
-            ArrayList<Habitacion> filaAux = new ArrayList<>();
 
-            for (int i = 0; i < this.cantPisos; i++) {
-                for (int j = 0; j < this.cantHabit; j++) {
-                    filaAux.add(new Habitacion());
-                }
-                edificio.add(filaAux);
-                filaAux = new ArrayList<>();
-            }
-        }else{
-            System.out.println("Cant pisos se excede al piso 'Z', hotel no creado");
-        }
-    }
-    public void agregarPiso(){
-        //creeando el piso antes de agregarlo
-        if(cantPisos == 26){
-            System.out.println("Se llego hasta el piso 'Z', no se agrego piso");
-        }else{
-            cantPisos++;
-            ArrayList<Habitacion> filaAux = new ArrayList<>();
-            for (int i = 0; i < this.cantHabit; i++) {
+    private ArrayList<Cliente> listaClientes = new ArrayList<>();
+    private ArrayList<Reserva> listaReservas = new ArrayList<>();
+    
+    private Paquete paquetePremium = new Paquete(1, "PREMIUM", 150, "cosa1, cosa2, cosa3");
+    private Paquete paqueteBasico  = new Paquete(2, "BASICO",  10,  "cosa1, cosa2, cosa3");
+    
+    private int contClientes = 0;
+    private int contReservas = 0;
+
+    private double costoSencilla = 85;
+    private double costoDoble = 130;
+    
+    /*Metodo DistriHotel*/
+    public DistriHotel(int cantPisos, int cantHabit) {
+
+        this.cantPisos = cantPisos;
+        this.cantHabit = cantHabit;
+        System.out.println("Generando Hotel");
+        ArrayList<Habitacion> filaAux = new ArrayList<>();
+
+        for (int i = 0; i < this.cantPisos; i++) {
+            for (int j = 0; j < this.cantHabit; j++) {
                 filaAux.add(new Habitacion());
             }
-            //agregando piso al edificio
             edificio.add(filaAux);
-            
+            filaAux = new ArrayList<>();
         }
-    }
-    
-    public void agregarHabitacion(){
-        cantHabit++;
-        for (int i = 0; i < cantPisos; i++) {
-            edificio.get(i).add(new Habitacion());
-        }
-    }
-    
-    public void mostrarHotel(){
-        System.out.print("\t");
-        for (int i = 1; i <= cantHabit; i++) {
-            System.out.print(i+"\t");
-        }
-        System.out.println();
-        System.out.print("\t");
-        for (int i = 1; i <= cantHabit; i++) {
-            System.out.print("________");
-        }
-        System.out.println();
-        for (int i = cantPisos-1; i >= 0; i--) {
-            System.out.print(((char) (i+65))+"     |\t");
-            for (int j = 0; j < cantHabit; j++) {
-                System.out.print(edificio.get(i).get(j).isOcupado()+"\t");
+        /*Metodo para hacer las reservas mediante Scanner*/
+         public void hacerReserva() {
+        contReservas++;
+        Scanner entrada = new Scanner(System.in);
+        
+        Cliente cliente_reserva = null;
+        NumeroHabitacion numero_habitacion_reserva;
+        int tipoPaquete_reserva;
+        int dias_estadia_reserva;
+        double costoPorNoche;
+        double costoTotal_reserva;
+        
+        String dui_cliente;
+        String numero_habitacion_string; 
+
+        System.out.println("\t\tHaciendo reserva # " + contReservas);
+        
+        //Pidiendo cliende por DUI
+        while (cliente_reserva == null) {
+            System.out.print("DUI Cliente: ");
+            dui_cliente = entrada.nextLine();
+            cliente_reserva = buscarClienteByDui(dui_cliente);
+            if (cliente_reserva == null) {
+                System.out.println("\t\tERROR: Cliente no registrado");
+            } else {
+                System.out.println("\t\tCliente encontrado");
             }
-            System.out.println();
         }
+        //pidiendo numero habitacion
         mostrarOcupadas();
-    }
-    public void ocuparHabitacion(int piso, int habitacion){
-        if (edificio.get(piso).get(habitacion).isOcupado() == true)
-            System.out.println("Habitacion ocupada");
-        else
-            edificio.get(piso).get(habitacion).setOcupado(true);
-    }
-    public void desocuparHabitacion(int piso, int habitacion){
-        if (edificio.get(piso).get(habitacion).isOcupado() == false)
-            System.out.println("Habitacion desocupada");
-        else
-            edificio.get(piso).get(habitacion).setOcupado(false);
-    }
-    public void mostrarOcupadas(){
-        System.out.println("Habitaciones Ocupadas:");
-        System.out.println("\tSencillas:");
-        for (int i = 0; i < cantPisos; i++) {
-            for (int j = 0; j < cantHabit; j++) {
-                if (edificio.get(i).get(j).isOcupado() == true) {
-                    System.out.println("\t\t|"+((char) (i+65))+""+(j+1));
-                }
-                j++;
+        do{
+            System.out.print("Numero habitacion: ");
+            numero_habitacion_string = entrada.nextLine();
+            numero_habitacion_reserva = new NumeroHabitacion(numero_habitacion_string);
+            if(edificio.get(numero_habitacion_reserva.getPiso()).get(numero_habitacion_reserva.getHabitacion()).isOcupado()){
+                System.out.println("\t\tERROR: Habitacion Ocupada");
+            }else{
+                ocuparHabitacion(numero_habitacion_reserva.getPiso(), numero_habitacion_reserva.getHabitacion());
+                break;
             }
-        }
-        System.out.println("\tDobles:");
-        for (int i = 0; i < cantPisos; i++) {
-            for (int j = 1; j < cantHabit; j++) {
-                if (edificio.get(i).get(j).isOcupado() == true) {
-                    System.out.println("\t\t|"+((char) (i+65))+""+(j+1));
-                }
-                j++;
-            }
-        }
+        }while(edificio.get(numero_habitacion_reserva.getPiso()).get(numero_habitacion_reserva.getHabitacion()).isOcupado());
+
     }
+    
 }
+    
