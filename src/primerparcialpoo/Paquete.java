@@ -31,6 +31,38 @@ public class Paquete {
         System.out.println("-------------------------------------------------------------------");
     }
     
+    /*Métodos Getters y Setters*/
+    public int getTipoPaquete() {
+        return tipoPaquete;
+    }
+
+    public void setTipoPaquete(int idFinal) {
+        this.tipoPaquete = idFinal;
+    }
+
+    public String getNombrePaquete() {
+        return nombrePaquete;
+    }
+
+    public void setNombrePaquete(String nombrePaquete) {
+        this.nombrePaquete = nombrePaquete;
+    }
+
+    public double getCostoPaquete() {
+        return costoPaquete;
+    }
+
+    public void setCostoPaquete(double costoPaquete) {
+        this.costoPaquete = costoPaquete;
+    }
+
+    public String getListaServicioPaquete() {
+        return listaServicioPaquete;
+    }
+
+    public void setListaServicioPaquete(String listaServicioPaquete) {
+        this.listaServicioPaquete = listaServicioPaquete;
+    }
     
     
 }
