@@ -200,8 +200,130 @@ public class DistriHotel {
             edificio.get(piso).get(habitacion).setOcupado(false);
         }
     }
-
+        /*Metodo mostrarOcupadas*/
+    public void mostrarOcupadas() {
+        System.out.println("_______________________________________________________");
+        System.out.println("\t\t\tMOSTRANDO HABITACIONES OCUPADAS");
+        System.out.println("_______________________________________________________");
+        /*Se separaran en sencillas y dobles mediante la iniciación del segundo for*/
+        System.out.println("\t\tSencillas:");
+        for (int i = 0; i < cantPisos; i++) {
+            for (int j = 0; j < cantHabit; j++) {
+                if (edificio.get(i).get(j).isOcupado() == true) {
+                    System.out.println("\t\t\t|" + base10_base26(i) + "" + (j + 1));
+                }
+                j++;
+            }
+        }
+        System.out.println("\t\tDobles:");
+        for (int i = 0; i < cantPisos; i++) {
+            for (int j = 1; j < cantHabit; j++) {
+                if (edificio.get(i).get(j).isOcupado() == true) {
+                    System.out.println("\t\t\t|" + base10_base26(i) + "" + (j + 1));
+                }
+                j++;
+            }
+        }
+        System.out.println("_______________________________________________________");
     }
-    
+        /*Metodo buscarClienteByDui*/
+    private Cliente buscarClienteByDui(String dui) {
+        for (int i = 0; i < listaClientes.size(); i++) {
+            if (listaClientes.get(i).getDuiCliente().equals(dui)) {
+                return listaClientes.get(i);
+            }
+        }
+        return null;
+    }
+
+    private static String base10_base26(int n) {
+        n++;
+        String res = "";
+        while (n > 0) {
+            n--;
+            int residuo = n % 26;
+            char digit = (char) (residuo + 65);
+            res = res + digit;
+            n = (n - residuo) / 26;
+        }
+
+        return res;
+    }
+
+    public ArrayList<ArrayList<Habitacion>> getEdificio() {
+        return edificio;
+    }
+        /*Getters y Setters*/
+    public void setEdificio(ArrayList<ArrayList<Habitacion>> edificio) {
+        this.edificio = edificio;
+    }
+
+    public int getCantPisos() {
+        return cantPisos;
+    }
+
+    public void setCantPisos(int cantPisos) {
+        this.cantPisos = cantPisos;
+    }
+
+    public int getCantHabit() {
+        return cantHabit;
+    }
+
+    public void setCantHabit(int cantHabit) {
+        this.cantHabit = cantHabit;
+    }
+
+    public ArrayList<Cliente> getListaClientes() {
+        return listaClientes;
+    }
+
+    public void setListaClientes(ArrayList<Cliente> listaClientes) {
+        this.listaClientes = listaClientes;
+    }
+
+    public ArrayList<Reserva> getListaReservas() {
+        return listaReservas;
+    }
+
+    public void setListaReservas(ArrayList<Reserva> listaReservas) {
+        this.listaReservas = listaReservas;
+    }
+
+    public int getContClientes() {
+        return contClientes;
+    }
+
+    public void setContClientes(int contClientes) {
+        this.contClientes = contClientes;
+    }
+
+    public int getContReservas() {
+        return contReservas;
+    }
+
+    public void setContReservas(int contReservas) {
+        this.contReservas = contReservas;
+    }
+
+    public double getCostoSencilla() {
+        return costoSencilla;
+    }
+
+    public void setCostoSencilla(double costoSencilla) {
+        this.costoSencilla = costoSencilla;
+    }
+
+    public double getCostoDoble() {
+        return costoDoble;
+    }
+
+    public void setCostoDoble(double costoDoble) {
+        this.costoDoble = costoDoble;
+    }
+
 }
+
+    
+
     
