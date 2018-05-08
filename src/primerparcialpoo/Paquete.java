@@ -5,7 +5,10 @@
 */
  
 package primerparcialpoo;
-
+/**
+ *
+ * @author javier
+ */
 public class Paquete {
     private int tipoPaquete;
     private String nombrePaquete;
