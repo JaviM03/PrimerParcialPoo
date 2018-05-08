@@ -7,7 +7,10 @@ package primerparcialpoo;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-;
+/**
+ *
+ * @author mariana
+ */
 
 
 public class DistriHotel {
@@ -85,6 +88,118 @@ public class DistriHotel {
                 break;
             }
         }while(edificio.get(numero_habitacion_reserva.getPiso()).get(numero_habitacion_reserva.getHabitacion()).isOcupado());
+        
+         //Pidiendo tipo Paquete
+        System.out.println("Tipo Paquete: ");
+        System.out.println("\t1. PREMIUM $"+paquetePremium.getCostoPaquete());
+        System.out.println("\t2. BASICO  $"+paqueteBasico.getCostoPaquete());
+        System.out.print("Seleccione: ");
+        tipoPaquete_reserva = entrada.nextInt();
+        
+        //Pidiendo duracion de estadia
+        System.out.print("Duracion de estadia en dias: ");
+        dias_estadia_reserva = entrada.nextInt();
+        
+        //Calculando Costo por noche
+        costoPorNoche = (tipoPaquete_reserva == 1? paquetePremium.getCostoPaquete() : paqueteBasico.getCostoPaquete()) + (numero_habitacion_reserva.getHabitacion()%2 == 0? costoSencilla : costoDoble );
+        
+        //Calculando Costo total
+        costoTotal_reserva = dias_estadia_reserva * costoPorNoche ;
+        
+        System.out.println("Costo por noche: $" + costoPorNoche);
+        System.out.println("Costo total:     $" + costoTotal_reserva);
+        
+        listaReservas.add(new Reserva(
+                contReservas, 
+                cliente_reserva, 
+                numero_habitacion_reserva, 
+                tipoPaquete_reserva == 1? paquetePremium : paqueteBasico, 
+                dias_estadia_reserva, 
+                costoPorNoche, 
+                costoTotal_reserva
+        ));
+        
+    }
+         /*Metodo mostrarReservas*/
+         public void mostrarReservas() {
+        System.out.println("\t\tMOSTRANDO RESERVAS");
+        System.out.println("_________________________________________");
+        for (int i = 0; i < listaReservas.size(); i++) {
+            listaReservas.get(i).mostrarReserva();
+            System.out.println("_________________________________________");
+        }
+    }
+         /*Metodo registrarCliente*/
+    public void registrarCliente() {
+        contClientes++;
+        listaClientes.add(new Cliente(contClientes));
+    }
+        /*Metodo mostrarClientes*/
+    public void mostrarClientes() {
+        System.out.println("\t\tMOSTRANDO CLIENTES");
+        System.out.println("_________________________________________");
+        for (int i = 0; i < listaClientes.size(); i++) {
+            listaClientes.get(i).mostrarCliente();
+            System.out.println("_________________________________________");
+        }
+    }
+
+    public void agregarPiso() {
+        //creeando piso antes de agregarlo
+
+        cantPisos++;
+        ArrayList<Habitacion> filaAux = new ArrayList<>();
+        for (int i = 0; i < this.cantHabit; i++) {
+            filaAux.add(new Habitacion());
+        }
+        //agregando piso al edificio
+        edificio.add(filaAux);
+
+    }
+        /*Metodo agregarHabitación*/
+    public void agregarHabitacion() {
+        cantHabit++;
+        for (int i = 0; i < cantPisos; i++) {
+            edificio.get(i).add(new Habitacion());
+        }
+    }
+        /*Metodo mostrarHotel*/
+    public void mostrarHotel() {
+        System.out.print("\t");
+        for (int i = 1; i <= cantHabit; i++) {
+            System.out.print(i + "\t");
+        }
+        System.out.println();
+        System.out.print("\t");
+        for (int i = 1; i <= cantHabit; i++) {
+            System.out.print("________");
+        }
+        System.out.println();
+        for (int i = cantPisos - 1; i >= 0; i--) {
+            System.out.print(base10_base26(i) + "\t|");
+            for (int j = 0; j < cantHabit; j++) {
+                System.out.print(edificio.get(i).get(j).isOcupado() + "\t");
+            }
+            System.out.println();
+        }
+
+    }
+        /*Metodo OcuparHabitación*/
+    public void ocuparHabitacion(int piso, int habitacion) {
+        if (edificio.get(piso).get(habitacion).isOcupado() == true) {
+            System.out.println("Habitacion ocupada");
+        } else {
+            edificio.get(piso).get(habitacion).setOcupado(true);
+        }
+    }
+        /*Metodo desocuparHabitacion*/
+    public void desocuparHabitacion(int piso, int habitacion) {
+        if (edificio.get(piso).get(habitacion).isOcupado() == false) {
+            System.out.println("Habitacion desocupada");
+        } else {
+            edificio.get(piso).get(habitacion).setOcupado(false);
+        }
+    }
 
     }
     
