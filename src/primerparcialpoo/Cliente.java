@@ -31,7 +31,15 @@ public class Cliente {
         System.out.print("Tarjeta:  ");
         this.tarjetaCliente = entrada.nextLine();
     }
-
+     /*Metodo mostrarCliente*/
+    public void mostrarCliente(){
+        System.out.println("ID: " + idCliente);
+        System.out.println("\tNombre:   " + nombreCliente);
+        System.out.println("\tApellido: " + apellidoCliente);
+        System.out.println("\tDUI:      " + duiCliente);
+        System.out.println("\tTarjeta:  " + tarjetaCliente);
+    }
+/*Método cCliente con sus variables*/
     public Cliente(int idCliente, String nombreCliente, String apellidoCliente, String duiCliente, String tarjetaCliente) {
         this.idCliente = idCliente;
         this.nombreCliente = nombreCliente;
@@ -40,14 +48,7 @@ public class Cliente {
         this.tarjetaCliente = tarjetaCliente;
     }
 
-    /*Metodo mostrarCliente*/
-    public void mostrarCliente(){
-        System.out.println("ID: " + idCliente);
-        System.out.println("\tNombre:   " + nombreCliente);
-        System.out.println("\tApellido: " + apellidoCliente);
-        System.out.println("\tDUI:      " + duiCliente);
-        System.out.println("\tTarjeta:  " + tarjetaCliente);
-    }
+   
     /*Getters y Setters de la clase Usuario*/
     public String getNombreCliente() {
         return nombreCliente;
