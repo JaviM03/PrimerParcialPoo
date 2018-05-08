@@ -40,45 +40,45 @@ public class Cliente {
         this.tarjetaCliente = tarjetaCliente;
     }
 
+    /*Metodo mostrarCliente*/
+    public void mostrarCliente(){
+        System.out.println("ID: " + idCliente);
+        System.out.println("\tNombre:   " + nombreCliente);
+        System.out.println("\tApellido: " + apellidoCliente);
+        System.out.println("\tDUI:      " + duiCliente);
+        System.out.println("\tTarjeta:  " + tarjetaCliente);
+    }
     /*Getters y Setters de la clase Usuario*/
-    public String getNombre() {
-        return nombre;
+    public String getNombreCliente() {
+        return nombreCliente;
     }
 
-    public String getApellido() {
-        return apellido;
+    public void setNombreCliente(String nombreCliente) {
+        this.nombreCliente = nombreCliente;
     }
 
-    public String getTelefono() {
-        return telefono;
+    public String getApellidoCliente() {
+        return apellidoCliente;
     }
 
-    public String getDui() {
-        return DUI;
+    public void setApellidoCliente(String apellidoCliente) {
+        this.apellidoCliente = apellidoCliente;
     }
 
-    public String getNumTargeta() {
-        return numTargeta;
+    public String getDuiCliente() {
+        return duiCliente;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setDuiCliente(String duiCliente) {
+        this.duiCliente = duiCliente;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public String getTarjetaCliente() {
+        return tarjetaCliente;
     }
 
-    public void setTel(String telefono) {
-        this.telefono = telefono;
+    public void setTarjetaCliente(String tarjetaCliente) {
+        this.tarjetaCliente = tarjetaCliente;
     }
-
-    public void setDUI(String DUI) {
-        this.DUI = DUI;
-    }
-
-    public void setNumeTargeta(String numTargeta) {
-        this.numTargeta = numTargeta;
-
-    }
+    
 }
