@@ -39,7 +39,8 @@ public class Cliente {
         System.out.println("\tDUI:      " + duiCliente);
         System.out.println("\tTarjeta:  " + tarjetaCliente);
     }
-/*Constructor Cliente con parametros de la clase Cliente*/
+    /*Constructor Cliente con parametros de la clase Cliente*/
+    /* Es un constructor vacío que recibe como parametro el id Cliente para ingresar los datos)*/
     public Cliente(int idCliente, String nombreCliente, String apellidoCliente, String duiCliente, String tarjetaCliente) {
         this.idCliente = idCliente;
         this.nombreCliente = nombreCliente;
