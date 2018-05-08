@@ -7,57 +7,27 @@
 package primerparcialpoo;
 
 public class Paquete {
-    public String nombre;
-    public double costo;
-    public Servicio servicio;
-    
-    public Paquete() {}
-    
-    public Paquete (String nombre, double costo, Servicio servicio){
-        this.nombre = nombre;
-        this.costo=costo;
-        this.servicio=servicio;
-    }
-    
-    //GETTERS
+    private int tipoPaquete;
+    private String nombrePaquete;
+    private double costoPaquete;
+    private String listaServicioPaquete;
 
-    public String getNombre() {
-        return nombre;
+    /*Constructor Paquete con parametros de la clase Paquete*/
+    public Paquete(int tipoPaquete, String nombrePaquete, double costoPaquete, String listaServicioPaquete) {
+        this.tipoPaquete = tipoPaquete;
+        this.nombrePaquete = nombrePaquete;
+        this.costoPaquete = costoPaquete;
+        this.listaServicioPaquete = listaServicioPaquete;
     }
-
-    public double getCosto() {
-        return costo;
-    }
-
-    public Servicio getServicio() {
-        return servicio;
-    }
-    
-    //SETTERS
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public void setCosto(double costo) {
-        this.costo = costo;
-    }
-
-    public void setServicio(Servicio servicio) {
-        this.servicio = servicio;
+    /*Método mostrarPaquete*/
+    public void mostrarPaquete(){
+        System.out.println("Tipo: "+tipoPaquete);
+        System.out.println("\tNombre:  "+nombrePaquete);
+        System.out.println("\tCosto:   $"+costoPaquete);
+        System.out.println("\tLista:   "+listaServicioPaquete);
+        System.out.println("-------------------------------------------------------------------");
     }
     
-    //METODOS
-    public void Agregar( ){
-        //
-    }
     
-    public void Eliminar(){
-        //
-    }
-    
-    public void Modificar(){
-        
-    }
     
 }
