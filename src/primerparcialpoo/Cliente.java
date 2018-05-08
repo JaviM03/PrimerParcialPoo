@@ -39,7 +39,7 @@ public class Cliente {
         System.out.println("\tDUI:      " + duiCliente);
         System.out.println("\tTarjeta:  " + tarjetaCliente);
     }
-/*Método cCliente con sus variables*/
+/*Constructor Cliente con parametros de la clase Cliente*/
     public Cliente(int idCliente, String nombreCliente, String apellidoCliente, String duiCliente, String tarjetaCliente) {
         this.idCliente = idCliente;
         this.nombreCliente = nombreCliente;
