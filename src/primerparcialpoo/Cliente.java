@@ -5,32 +5,39 @@
  */
 package primerparcialpoo;
 
+import java.util.Scanner;
+
 /**
  *
- * @author marielos
+ * @author javier
  */
 public class Cliente {
-
-    /*Atributos de la clase Usuario*/
-    private String nombre;
-    private String apellido;
-    private String telefono;
-    private String DUI;
-    private String numTargeta;
-    private Servicio servicioActivo;
-
-    /*Creando el Contructor que tiene el mismo nombre de la clase*/
- /*Contructor de Usuario*/
-    public Cliente() {
-
+    private final int idCliente;
+    private String nombreCliente; 
+    private String apellidoCliente;
+    private String duiCliente;
+    private String tarjetaCliente;
+    
+    public Cliente(int idCliente){
+        this.idCliente = idCliente;
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("Creando Cliente ");
+        System.out.print("Nombre:   ");
+        this.nombreCliente = entrada.nextLine();
+        System.out.print("Apellido: ");
+        this.apellidoCliente = entrada.nextLine();
+        System.out.print("DUI:      ");
+        this.duiCliente = entrada.nextLine();
+        System.out.print("Tarjeta:  ");
+        this.tarjetaCliente = entrada.nextLine();
     }
 
-    public Cliente(String nombre, String apellido, String telefono, String DUI, String numTargeta) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.telefono = telefono;
-        this.DUI = DUI;
-        this.numTargeta = numTargeta;
+    public Cliente(int idCliente, String nombreCliente, String apellidoCliente, String duiCliente, String tarjetaCliente) {
+        this.idCliente = idCliente;
+        this.nombreCliente = nombreCliente;
+        this.apellidoCliente = apellidoCliente;
+        this.duiCliente = duiCliente;
+        this.tarjetaCliente = tarjetaCliente;
     }
 
     /*Getters y Setters de la clase Usuario*/
